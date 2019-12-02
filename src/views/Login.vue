@@ -1,21 +1,11 @@
 <template>
   <div class="login">
-    <h1>Login</h1>
+    <h1 class="text-center mb-5">Login</h1>
     
-  <div class="row mt-5">
-    <div class="col">
-      
-    </div>
-    <div class="col">
-      
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-     
-    </div>
-    <div class="col">
-      <form>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <form @submit.prevent="onSubmit">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -26,14 +16,24 @@
           <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
           <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    
-    </div>
-    <div class="col"></div>
-  </div>
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        </form>
+        </div>
+        <div class="col"></div>
+      </div>
   </div>
 </template>
+
+<script>
+import store from '@/store.js'
+export default {
+  methods: {
+    onSubmit () {
+      store.authenticated = true
+    }
+  }
+}
+</script>

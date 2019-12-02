@@ -1,41 +1,30 @@
 <template>
   <div class="signup">
-    <h1>Signup</h1>
+    <h1 class="text-center mb-5">Signup</h1>
    
     <div class="container">
-      <div class="row mt-5">
-        <div class="col-sm">
-      
-        </div>
-        <div class="col-sm">
-      
-        </div>
-      </div>
       <div class="row">
-        <div class="col">
-     
-        </div>
+        <div class="col"></div>
         <div class="col">
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <label for="emailField">Email address</label>
+              <input type="email" class="form-control" id="emailField" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="passwordField">Password</label>
+              <input type="password" class="form-control" id="passwordField" placeholder="Password">
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+              <label for="confirmPasswordField">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPasswordField" placeholder="Confirm Password">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary mt-5">Submit</button>
           </form>
-    
-          </div>
-          <div class="col"></div>
-        </div>  
+        </div>
+        <div class="col"></div>
       </div>
+     </div>  
   </div>
 </template>
