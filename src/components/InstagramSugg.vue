@@ -62,10 +62,7 @@
 
 <script>
 export default {
-  name: "InstaSugg",
-  props: {
-    msg: String
-  }
+  props: ["info"]
 };
 </script>
 
