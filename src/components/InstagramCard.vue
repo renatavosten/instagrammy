@@ -1,14 +1,14 @@
 <template>
-
   <div class="card">
-        <div class="card-header">
-          Featured
+        <div class="card-header text-left">
+          {{ info.title }}
         </div>
       <div class="card-body p-0">
-        <img class="card-img-top"src="/photo-1574302833650-e91c6ec31969.jpg" alt ="vrtuljak">
+        <!-- p-0 je padding 0-->
+        <img @click="changeImage" class="card-img-top" :src="info.url" alt ="vrtuljak"/>
       </div>
       <div class="card-footer text-muted text-left">
-        2 days ago
+        {{ info.time }}
       </div>
   </div>
 
@@ -16,11 +16,26 @@
 
 <script>
 export default {
-  name: 'InstagramCard',
-  props: {
-    msg: String
+  props: ["info"],
+  methods: {
+    changeImage() {
+      this.info.time = 'Fetching...'
+      fetch(`https://source.unsplash.com/1600x900/?nature,water`).then(
+        response => {
+          console.log(response);
+          this.info.url = response.url;
+          this.info.time = 'Done.'
+        }
+      );
+    }
   }
-}
+};
 </script>
+
+<style lang="scss" scoped>
+  img:hover {
+    cursor: pointer;
+  }
+</style>
 
 
