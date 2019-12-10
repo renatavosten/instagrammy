@@ -1,11 +1,15 @@
 <template>
   <div class="row">
     <div class="col-8">
-      <InstagramCard :key="card.id" :info="card" v-for="card in filteredCards" /> 
+      <div v-if="authenticated">
+        <InstagramCard :key="card.id" :info="card" v-for="card in filteredCards" /> 
+      </div>
     </div>
     <div class="col-4">
-      <InstagramStory/>
-      <InstagramSugg/>
+      <div v-if="authenticated">
+        <InstagramStory/>
+        <InstagramSugg/>
+      </div>
     </div>
   </div>
 </template>
@@ -25,7 +29,7 @@ export default {
     filteredCards() {
       let filtered = [];
       for (let card of this.cards) {
-        if (card.title.includes(this.searchTerm)) {
+        if (card.title.includes(this.searchTerm) || card.author.includes(this.searchTerm)) {
           filtered.push(card);
         }
       }
