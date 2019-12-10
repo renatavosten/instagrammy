@@ -1,11 +1,10 @@
 export default {
     authenticated: false,
     userEmail: 'fake@email.com',
-    userName: 'Neki user',
     cards: [
-        {id: 1, title: "jedan", time: "an hour ago", url: "photo-1574302833650-e91c6ec31969.jpg" },
-        {id: 2, title: "dva", time: "two hours ago", url: "photo-1574302833650-e91c6ec31969.jpg" },
-        {id: 3, title: "tri", time: "a day ago", url: "photo-1574302833650-e91c6ec31969.jpg" }
+        {id: 1, avatar:"photo-1552168324-d612d77725e3.jpg", author: "photographymaster", title: "photo", time: "an hour ago", url: "slika8.jpg" },
+        {id: 2, avatar:"photo-1569077218751-3e3de7800c00.jpg", author:"foodblogger", title: "food", time: "two hours ago", url: "slika9.jpg" },
+        {id: 3, avatar:"photo-1574327694472-d172fb4d5865.jpg", author:"fashionmodels", title: "fashion", time: "a day ago", url: "slika10.jpg" }
     ],
     searchTerm: ''
 }
