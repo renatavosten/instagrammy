@@ -5,15 +5,15 @@
     <div class="row">
       <div class="col"></div>
       <div class="col">
-        <form @submit.prevent="onSubmit">
+        <form @submit.prevent="login">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <input v-model="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <input v-model="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -28,12 +28,19 @@
 </template>
 
 <script>
-import store from '@/store.js'
 export default {
-  methods: {
-    onSubmit () {
-      store.authenticated = true
+  data(){
+    return {
+      email: '',
+      password: '',
     }
-  }
+  },
+  methods: {
+    login() {
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+        console.log(error)
+      });
+    }
+  } 
 }
 </script>
