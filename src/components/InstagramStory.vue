@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h8 class="card-subtitle mb-2 text-muted">Stories</h8>
+      <h6 class="card-subtitle mb-2 text-muted">Stories</h6>
       <ul class="list-unstyled">
         <li class="media mt-3">
           <img src="photo-1552168324-d612d77725e3.jpg" class="mr-3" alt="fotograf"/>
