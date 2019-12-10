@@ -1,7 +1,8 @@
 <template>
   <div class="card">
         <div class="card-header text-left">
-          {{ info.title }}
+          <img :src=info.avatar class="mr-3" alt ="..." />
+          <small><b>{{info.author }},</b> {{ info.title }}</small>
         </div>
       <div class="card-body p-0">
         <!-- p-0 je padding 0-->
@@ -35,6 +36,11 @@ export default {
 <style lang="scss" scoped>
   img:hover {
     cursor: pointer;
+  }
+  .mr-3{
+    height: 34px;
+    width: 34px;
+    border-radius: 50%;
   }
 </style>
 
