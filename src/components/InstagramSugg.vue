@@ -1,8 +1,7 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h8 class="card-subtitle mb-2 text-muted">Suggestions</h8>
-      <br />
+      <h6 class="card-subtitle mb-2 text-muted">Suggestions</h6>
       <ul class="list-unstyled">
         <li class="media mt-3">
           <img src="photo-1483086431886-3590a88317fe.jpg" class="mr-3" alt="polarna svjetlost"/>
