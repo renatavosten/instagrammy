@@ -19,10 +19,11 @@
                 </form>
                 <router-link v-if="!authenticated" class="btn btn-info my-2 my-sm-0 mr-2" to="/login">Login</router-link>
                 <span v-if="authenticated">
-                  {{ userName }}
+                  <!--{{ userEmail }}-->
                   <a @click="logout" class="btn btn-info my-2 my-sm-0 mr-2" href="#">Logout</a>
                 </span>
-                <router-link class="btn btn-outline my-2 my-sm-0 mr-2" to="/signup">Signup</router-link>
+                <router-link v-if="authenticated" class="btn btn-info my-2 my-sm-0 mr-2" to="/settings">Settings</router-link>
+                <router-link v-if="!authenticated" class="btn btn-outline my-2 my-sm-0 mr-2" to="/signup">Signup</router-link>
               </div>
               </nav>
             </div>
@@ -45,8 +46,26 @@
     },
     methods: {
       logout() {
-        store.authenticated = false;
+        firebase.auth().signOut()
       }
+    },
+
+    mounted (){
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          console.log("User is logged in with email " + user.email)
+          this.authenticated = true
+          this.userEmail = user.email
+          if(this.$route.name !== 'home')
+            this.$router.push({name: 'home'}).catch(err => console.log(err))
+        }
+        else {
+          console.log("User is not logged in")
+          this.authenticated = false
+          if(this.$route.name !== 'login')
+            this.$router.push({name: 'login'}).catch(err => console.log(err))
+        }
+      });
     }
   };
 </script>
