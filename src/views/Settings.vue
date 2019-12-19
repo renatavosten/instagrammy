@@ -1,6 +1,6 @@
 <template>
   <div class="settings">
-    <h1>Settings</h1>
+    <h1 class="text-center mb-5">Settings</h1>
 
     <div class="row">
       <div class="col"></div>
@@ -25,6 +25,7 @@
 <script>
 export default {
   data() {
+    debugger;
     return {
       email: "",
       password: "",
