@@ -34,38 +34,62 @@
       <div class = "container">
         <router-view/>
       </div>
+
       <div id="footer" class="text-center mt-5">Ovo je footer. (c) 2019 mi svi skupa.</div>
     </div>
 </template>
 
 <script>
   import store from '@/store.js';
+
   export default {
     data () {
       return store;
     },
+
     methods: {
       logout() {
-        firebase.auth().signOut()
+        firebase.auth().signOut();
       }
     },
 
     mounted (){
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
-          console.log("User is logged in with email " + user.email)
-          this.authenticated = true
-          this.userEmail = user.email
+          console.log("User is logged in with email " + user.email);
+          this.authenticated = true;
+          this.userEmail = user.email;
           if(this.$route.name !== 'home')
             this.$router.push({name: 'home'}).catch(err => console.log(err))
         }
         else {
           console.log("User is not logged in")
-          this.authenticated = false
+          this.authenticated = false;
           if(this.$route.name !== 'login')
             this.$router.push({name: 'login'}).catch(err => console.log(err))
         }
       });
+
+      db.collection("posts-real").orderBy("time").onSnapshot(snapshot => {
+        snapshot.docChanges().forEach(change => {
+          if (change.type === "added") {
+            const data = change.doc.data();
+            console.log("New data: ", data);
+            if (data.postedBy) {
+              this.cards.unshift({
+                id: change.doc.id,
+                postedBy: data.postedBy,
+                time: data.time,
+                url: data.url
+              });
+            }
+          }
+          if (change.type === "removed") {
+            const data = change.doc.data();
+            console.log("Deleted: ", data);
+          } 
+        });
+      }); 
     }
   };
 </script>
