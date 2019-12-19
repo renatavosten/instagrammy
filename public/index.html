@@ -28,22 +28,25 @@
     <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.5.1/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
     
-    <script>
+  <script>
       // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyA-NfE3mg34P2F_oMM6Vvhuq48xIapr1tk",
-        authDomain: "instagrammy-8fd5a.firebaseapp.com",
-        databaseURL: "https://instagrammy-8fd5a.firebaseio.com",
-        projectId: "instagrammy-8fd5a",
-        storageBucket: "instagrammy-8fd5a.appspot.com",
-        messagingSenderId: "966672213784",
-        appId: "1:966672213784:web:a816a1603ad4c6bfabe06d",
-        measurementId: "G-48CGTPTFK3"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
-      firebase.analytics();
-    </script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyA-NfE3mg34P2F_oMM6Vvhuq48xIapr1tk",
+    authDomain: "instagrammy-8fd5a.firebaseapp.com",
+    databaseURL: "https://instagrammy-8fd5a.firebaseio.com",
+    projectId: "instagrammy-8fd5a",
+    storageBucket: "instagrammy-8fd5a.appspot.com",
+    messagingSenderId: "966672213784",
+    appId: "1:966672213784:web:a816a1603ad4c6bfabe06d",
+    measurementId: "G-48CGTPTFK3"
+  };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var db = firebase.firestore();   //mogućnost korištenja knjižnica za Cloud Firestore; globalna varijabla
+  </script>
   </body>
 </html>
