@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     signup() {
+      debugger;
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
         console.log(error)
       });
